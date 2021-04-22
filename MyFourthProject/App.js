@@ -1,49 +1,35 @@
 import React from 'react';
-import {Text, Image, ScrollView } from 'react-native';
+import {Text, View, SectionList } from 'react-native';
 
-const dog = {
-  uri: '"https://worlddogfinder.com/upload/editor/brittany_spaniel_puppies_LhEYdHYrX5.jpg' ,
- width: 64, 
- height: 64
-  };
 
-export default  MyScrollViewApp = () => (
 
-  <ScrollView style = {{padding: 40}}>
-    <Text style={{fontsize: 80}}> Try to Scroll Down </Text>
-    <Image source={require('./assets/dog2.png') } style = {{width: 64, height: 64}} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />  
-    <Image source={dog} />
-    <Image source={dog} />
-    <Text style={{fontsize: 80}}> Try to Scroll Down Again if You Like </Text>
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />  
-    <Image source={dog} />
-    <Image source={dog} />
-    <Text style={{fontsize: 80}}> Try to Scroll Down Again  </Text>
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />  
-    <Image source={dog} />
-    <Image source={dog} />
-    <Text style={{fontsize: 80}}> Try to Scroll Down Again </Text>
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />
-    <Image source={dog} />  
-    <Image source={dog} />
-    <Image source={dog} />
-    <Text style={{fontsize: 80}}> React Native Component! </Text>
-  </ScrollView>  
+export default  StatesApp = () => {
+
+return (
+  <View style = {{flex:1, paddingTop:22 }}>
+    <SectionList 
+    sections = {[
+      {title: 'A', data: ['Alabama', 'Alaska', 'Arkansas', 'Arizona' ]},
+      {title: 'C', data: ['California', 'Colorado', 'Connecticut']},
+      {title: 'D', data: ['Delaware']},
+      {title: 'F', data: ['Florida']},
+      {title: 'G', data: ['Georgia']},
+      {title: 'H', data: ['Hawaii']},
+      {title: 'I', data: ['Illinois', 'Iowa']},
+      {title: 'K', data: ['Kentucky']}
+    
+      ]}
+      renderItem= {({item}) => <Text style = {{padding: 10, fontsize: 20, height: 44}}> {item} </Text>}
+      renderSectionFooter = {({section}) => <Text style = {{paddingTop:4, paddingLeft: 10,
+      paddingRight: 10, paddingBottom: 4, fontSize: 14, fontWeight: 'bold', backgroundColor: '#9FA8DA'}}>
+      {section.title}</Text>}//set your custom color
+      keyExtractor = {(item, index) => index}
+
+    />
+  </View>
+
+ 
+ 
   );
   
-
+}
